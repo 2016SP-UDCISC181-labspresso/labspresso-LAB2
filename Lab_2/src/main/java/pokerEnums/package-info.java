@@ -1,0 +1,8 @@
+/**
+ * 
+ */
+/**
+ * @author Auzi
+ *
+ */
+package pokerEnums;
