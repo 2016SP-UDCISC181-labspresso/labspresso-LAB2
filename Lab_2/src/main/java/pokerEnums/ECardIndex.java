@@ -5,7 +5,7 @@ package pokerEnums;
  * @author Auzi
  *
  */
-//to contain enums for to access the n'th card
+//THIS ALLOWS YOU TO ACCESS A CARD IN HAND BY INDEX
 public enum ECardIndex {
 	FIRST(0),
 	SECOND(1),
