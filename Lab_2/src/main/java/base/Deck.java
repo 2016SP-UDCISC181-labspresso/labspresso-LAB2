@@ -34,8 +34,8 @@ public class Deck {
 		}
 		
 	}
-	
-	public int numcards(){
+	//number of Cards in Deck
+	private int numcards(){
 		return cards.size();
 	}
 }
