@@ -9,7 +9,7 @@ public class Card implements Comparable {
 	private ERank ERank;
 	
 	
-	public Card(pokerEnums.ESuit ESuit, pokerEnums.ERank ERank,int rankNum){
+	public Card(pokerEnums.ESuit ESuit, pokerEnums.ERank ERank){
 		this.ESuit = ESuit;
 		this.ERank = ERank;
 		

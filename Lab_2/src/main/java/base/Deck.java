@@ -1,38 +1,41 @@
 package base;
 import pokerEnums.*;
-import java.util.*;
+import java.util.ArrayList;
 
-public class Deck{
-
-	Deck deck = createDeck();
+public class Deck {
 	
-	public static Deck createDeck(){
-
+	private ArrayList<Card> cards;
+	
+	public Deck(){
+		cards = new ArrayList<Card>();
 		for(pokerEnums.ESuit suit : ESuit.values()){
 			for (pokerEnums.ERank rank : ERank.values()){
 				Card card = new Card(suit, rank);
-				deck = new ArrayList<Card>();
-				deck.add(card);
-				
+				cards.add(card);
 			}
 		}
-		return deck;
 	}
-	
-	private void add(Card card) {
-		// TODO Auto-generated method stub
+	public void shuffle(){
+		for ( int i = cards.size()-1; i > 0; i-- ) {
+            int rand = (int)(Math.random()*(i+1));
+            Card temp = cards.get(i);
+            cards.set(i, cards.get(rand));
+            cards.set(rand, temp);
+		}
+	}
+	public Card getCard() {
+		if(cards.size()>0){
+			Card card = cards.get(cards.size()-1);
+			cards.remove(cards.size()-1);
+			return card;
+		}
+		else{
+			return null;
+		}
 		
 	}
-
-	public Deck removeFromDeck(){
-		return deck;
+	
+	public int numcards(){
+		return cards.size();
 	}
-	
-	public Card drawDeck(){
-		return deck.removeFromDeck(Card);
-	}
-	
-	
-	
-	
 }
