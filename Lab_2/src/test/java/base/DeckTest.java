@@ -1,15 +1,13 @@
 package base;
 import static org.junit.Assert.*;
 //junit
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+
 import org.junit.Test;
 //reflectors
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 
 public class DeckTest {
 	Deck testDeck = new Deck();
@@ -82,13 +80,51 @@ public class DeckTest {
 		}
 
 	@Test//need to put expects exception here
-	public void overDraw(){//need to throw exception here
+	public void overDraw()throws Exception{
 		
 		Deck d = new Deck();
 		Card c;
 		for(int i = 0;i<100;i++){
 			c = d.getCard();
+			//System.out.print(c.getERank());
+			//System.out.print(i +"\n");
 		}
+		
+		}
+	
+	@Test
+	public void shuffleTest(){
+		ArrayList<Card> shuffled = new ArrayList<Card>();
+		ArrayList<Card> unshuffled = new ArrayList<Card>();
+		
+		Deck US = new Deck();
+		Deck S = new Deck();
+		S.shuffle();
+		
+		for(int i = 1;i<10;i++){
+			Card card = US.getCard();
+			Card rCard = S.getCard();
+			shuffled.add(rCard);
+			unshuffled.add(card);
+		}
+			
+		System.out.print(shuffled.size());	
+		
+			
+		assertTrue(shuffled != unshuffled);
+	
+			
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
 		
 		
 	}
