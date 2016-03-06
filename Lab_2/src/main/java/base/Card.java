@@ -32,6 +32,7 @@ public class Card implements Comparable {
 		ERank = eRank;
 	}
 
+
 	@Override
 	public int compareTo(Object o) {
 		// TODO Auto-generated method stub
