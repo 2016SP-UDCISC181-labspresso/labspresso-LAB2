@@ -2,6 +2,8 @@ package base;
 import pokerEnums.*;
 import java.util.ArrayList;
 
+import exceptions.Deck;
+
 public class Deck {
 	
 	private ArrayList<Card> cards;
@@ -27,6 +29,20 @@ public class Deck {
 		if(cards.size()>0){
 			Card card = cards.get(cards.size()-1);
 			cards.remove(cards.size()-1);
+			{
+			try{
+				d = new Deck.remove(1);
+				return d;
+			}
+			catch(IndexOutOfBoundsException ex){
+				System.out.println("Deck Empty, dont't be so greedy");
+			}
+			catch(Exception e){
+				//Redeal all hands, last resort.
+				//System.out.println("Restarting game, yall messed it up");
+				//StartGame();
+			}
+			}
 			return card;
 		}
 		else{
@@ -35,7 +51,7 @@ public class Deck {
 		
 	}
 	
-	public int numcards(){
+	private int numcards(){
 		return cards.size();
 	}
 }
