@@ -176,11 +176,29 @@ public class Hand {
 		return bHandCheck;
 	}
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
 	public static boolean isHandFullHouse(Hand h, HandScore hs) {
-		hs.setHandStrength(EHandStrength.FullHouse.getHandStrength());
-		return false;
+		boolean isScored = false;
+		 if (h.getCardsInHand().get(ECardIndex.FIRST.getNthCard()).getERank() == 
+				 h.getCardsInHand().get(ECardIndex.THIRD.getNthCard()).getERank()&& 
+				 h.getCardsInHand().get(ECardIndex.FOURTH.getNthCard()).getERank() == 
+				 h.getCardsInHand().get(ECardIndex.FIFTH.getNthCard()).getERank()) 
+		 {
+			 isScored = true;
+			 hs.setHandStrength(EHandStrength.FullHouse.getHandStrength());
+		 }
+		 else if (h.getCardsInHand().get(ECardIndex.THIRD.getNthCard()).getERank() == 
+				  h.getCardsInHand().get(ECardIndex.FIFTH.getNthCard()).getERank()&& 
+				  h.getCardsInHand().get(ECardIndex.FIRST.getNthCard()).getERank() == 
+				  h.getCardsInHand().get(ECardIndex.SECOND.getNthCard()).getERank())
+		 {
+			 isScored = true;
+			 hs.setHandStrength(EHandStrength.FullHouse.getHandStrength());
+		 }
+			
+		return isScored;
 	}
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public static boolean isHandFlush(Hand h, HandScore hs) {
 		boolean bHandCheck = false;
 		if(((h.getCardsInHand().get(ECardIndex.FIRST.getNthCard()).getESuit())== 
@@ -196,6 +214,7 @@ public class Hand {
 		
 		return bHandCheck;
 	}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public static boolean isHandStraight(Hand h, HandScore hs) {
 		hs.setHandStrength(EHandStrength.Straight.getHandStrength());

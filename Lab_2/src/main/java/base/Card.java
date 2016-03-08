@@ -1,4 +1,8 @@
 package base;
+
+/*
+ * Austin Abbruzzesi, Emily McNeal, ReAnne Mooney, John Pae, Pat Zingo
+ */
 import java.util.Comparator;
 import pokerEnums.ESuit;
 import pokerEnums.ERank;
