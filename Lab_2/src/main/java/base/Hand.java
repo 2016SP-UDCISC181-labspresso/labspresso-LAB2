@@ -61,13 +61,6 @@ public class Hand {
 		return this;
 	}
 
-	/**
-	 * EvaluateHand is a static method that will score a given Hand of cards
-	 * 
-	 * @param h
-	 * @return
-	 * @throws HandException 
-	 */
 	public static Hand EvaluateHand(Hand h) throws HandException {
 
 		Collections.sort(h.getCardsInHand());
