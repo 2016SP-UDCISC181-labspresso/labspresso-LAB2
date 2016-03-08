@@ -147,14 +147,13 @@ public class HandTest {
 		System.out.print(h.getHandScore());
 		boolean bActualIsHandFourOfAKind = Hand.isFourOfAKind(h, hs);
 		boolean bExpectedIsHandFourOfAKind = true;
-		
-		//	Did this evaluate to Four of a Kind?
+	
 		assertEquals(bActualIsHandFourOfAKind,bExpectedIsHandFourOfAKind);		
-		//	Was the four of a kind an Ace?
+		
 		assertEquals(hs.getHiHand(),ERank.ACE.getRankNum());		
-		//	FOAK has one kicker.  Was it a Club?
+	
 		assertEquals(hs.getKickers().get(ECardIndex.FIRST.getNthCard()).getESuit(), ESuit.CLUBS);
-		//	FOAK has one kicker.  Was it a King?		
+			
 		assertEquals(hs.getKickers().get(ECardIndex.FIRST.getNthCard()).getERank(), ERank.KING);
 	}	
 
