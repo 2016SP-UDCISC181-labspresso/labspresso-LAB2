@@ -1,13 +1,19 @@
 package base;
 import pokerEnums.*;
 import java.util.ArrayList;
-
-import exceptions.Deck;
+import exceptions.DeckException;
+/*
+ * For the rest of the team, Collections Negates the need for a shuffle method
+ * as it has a shuffle method built in.
+ */
+import java.util.Collections;
 
 public class Deck {
 	
 	private ArrayList<Card> cards;
-	
+	/*
+	 * Returns a shuffled deck of Cards
+	 */
 	public Deck(){
 		cards = new ArrayList<Card>();
 		for(pokerEnums.ESuit suit : ESuit.values()){
@@ -15,38 +21,18 @@ public class Deck {
 				Card card = new Card(suit, rank);
 				cards.add(card);
 			}
+			Collections.shuffle(cards);
 		}
 	}
-	public void shuffle(){
-		for ( int i = cards.size()-1; i > 0; i-- ) {
-            int rand = (int)(Math.random()*(i+1));
-            Card temp = cards.get(i);
-            cards.set(i, cards.get(rand));
-            cards.set(rand, temp);
-		}
-	}
-	public Card getCard() {
+	
+		
+	
+	public Card getCard() throws DeckException  {//aka Draw
 		if(cards.size()>0){
-			Card card = cards.get(cards.size()-1);
-			cards.remove(cards.size()-1);
-			{
-			try{
-				d = new Deck.remove(1);
-				return d;
-			}
-			catch(IndexOutOfBoundsException ex){
-				System.out.println("Deck Empty, dont't be so greedy");
-			}
-			catch(Exception e){
-				//Redeal all hands, last resort.
-				//System.out.println("Restarting game, yall messed it up");
-				//StartGame();
-			}
-			}
-			return card;
+			return cards.remove(0);
 		}
 		else{
-			return null;
+			throw new DeckException(this);
 		}
 		
 	}
